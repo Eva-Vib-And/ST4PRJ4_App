@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/drawable/ic_baseline_bar_chart_24.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/drawable/round_btn.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_main.xml" value="0.48" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher_bottle.xml" value="0.14322916666666666" />
       </map>
     </option>
