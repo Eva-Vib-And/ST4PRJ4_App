@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingTracker">
         <activity
+            android:name=".EditFeedingData"
+            android:exported="false" />
+        <activity
+            android:name=".MilkPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OverviewAcitivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseMethodActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
