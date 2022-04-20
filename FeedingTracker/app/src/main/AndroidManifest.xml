@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingTracker">
         <activity
+            android:name=".ChooseFeedingType"
+            android:exported="true" />
+        <activity
             android:name=".EditFeedingData"
             android:exported="false" />
         <activity
