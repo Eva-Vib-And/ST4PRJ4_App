@@ -7,15 +7,17 @@
     tools:context=".MainMenuActivity">
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/graphButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
         android:src="@drawable/ic_baseline_insert_chart_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.329"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -32,6 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:src="@drawable/ic_baseline_play_arrow_24"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/graphButton"
         tools:layout_editor_absoluteX="148dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
