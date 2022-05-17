@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Feeding {
     String FeedingType;
-    LocalDateTime datetime;
+    double milkInMl;
 
     public String getFeedingType() {
         return FeedingType;
@@ -14,11 +14,11 @@ public class Feeding {
         FeedingType = feedingType;
     }
 
-    public LocalDateTime getDatetime() {
-        return datetime;
+    public double getMilkInMl() {
+        return milkInMl;
     }
 
-    public void setDatetime(LocalDateTime datetime) {
-        this.datetime = datetime;
+    public void setMilkInMl(double milkInMl) {
+        this.milkInMl = milkInMl;
     }
 }
