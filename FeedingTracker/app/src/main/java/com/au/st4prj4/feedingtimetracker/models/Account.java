@@ -1,49 +1,20 @@
 package com.au.st4prj4.feedingtimetracker.models;
 
-public class Account {
-    String name;
-    String childName;
-    String email;
-    String password;
-    int id;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public int getId() {
-        return id;
-    }
+import java.io.Serializable;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+@Entity
+public class Account implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    int id=0;
 
-    public String getName() {
-        return name;
-    }
+    @ColumnInfo(name = "user")
+    String user ="";
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @ColumnInfo(name = "child")
+    String child ="";
 
-    public String getChildName() {
-        return childName;
-    }
-
-    public void setChildName(String childName) {
-        this.childName = childName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

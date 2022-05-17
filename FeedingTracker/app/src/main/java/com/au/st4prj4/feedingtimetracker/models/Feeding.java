@@ -1,8 +1,14 @@
 package com.au.st4prj4.feedingtimetracker.models;
 
-import java.time.LocalDateTime;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
+import java.time.LocalDateTime;
+@Entity(tableName = "feeding")
 public class Feeding {
+    @PrimaryKey(autoGenerate = true)
+    public int id;     // item id
+    public int userId; // User id
     String FeedingType;
     double milkInMl;
 

@@ -58,7 +58,7 @@ public class StartFeedingByBottle extends AppCompatActivity {
             dateTime= LocalDate.now();
             //add data to feeding list to keep track of total feedings
             FeedingList feedingList = new FeedingList();
-            feedingList.setDate(dateTime);
+            feedingList.setDate(dateTime.toString());
            /* if(dateTime != feedingList.getDateTime()) {
                 if(feedingList.getDateTime()==null) {
                     feedingList.setDate(dateTime);
