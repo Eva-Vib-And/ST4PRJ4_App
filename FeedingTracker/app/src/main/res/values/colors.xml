@@ -11,4 +11,8 @@
     <color name="lightRed">#f28080</color>
     <color name="pink">#facccc</color>
     <color name="gray">#eeeeee</color>
+    <color name="green_1">#91c591</color>
+    <color name="green_2">#a7d1a7</color>
+    <color name="green_3">#bddcbd</color>
+    <color name="darkgreen">#5fab5f</color>
 </resources>
