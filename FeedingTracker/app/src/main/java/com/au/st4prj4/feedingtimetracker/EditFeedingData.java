@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class StartFeedingByBreast extends AppCompatActivity {
+public class EditFeedingData extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

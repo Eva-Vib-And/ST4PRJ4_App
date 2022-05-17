@@ -10,13 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingTracker.Boy">
         <activity
-            android:name=".StartFeedingByBottle"
-            android:exported="false" />
-        <activity
             android:name=".ChooseFeedingType"
             android:exported="true" />
         <activity
-            android:name=".StartFeedingByBreast"
+            android:name=".EditFeedingData"
             android:exported="false" />
         <activity
             android:name=".MilkPlanActivity"
