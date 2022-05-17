@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.FeedingTracker.Girly" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/red</item>
-        <item name="colorPrimaryVariant">@color/lightRed</item>
+        <item name="colorPrimary">@color/pink_7b9</item>
+        <item name="colorPrimaryVariant">@color/pink_cf2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/pink</item>
-        <item name="colorSecondaryVariant">@color/lightRed</item>
+        <item name="colorSecondary">@color/pink_eee</item>
+        <item name="colorSecondaryVariant">@color/sand_9d7</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

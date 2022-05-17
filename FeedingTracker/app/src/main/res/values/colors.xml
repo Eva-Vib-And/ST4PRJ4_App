@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+
     <color name="white">#FFFFFFFF</color>
     <color name="red">#ed4d4d</color>
     <color name="lightRed">#f28080</color>
@@ -15,4 +16,13 @@
     <color name="green_2">#a7d1a7</color>
     <color name="green_3">#bddcbd</color>
     <color name="darkgreen">#5fab5f</color>
+
+    <color name="pink_cf2">#FFDCF2</color>
+    <color name="pink_fa9">#FF1FA9</color>
+    <color name="pink_7b9">#FF47B9</color>
+    <color name="pink_eee">#FFEEEE</color>
+    <color name="sand_6ea">#FFF6EA</color>
+    <color name="sand_9d7">#F7E9D7</color>
+    <color name="sand8c3">#EBD8C3</color>
+
 </resources>
