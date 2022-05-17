@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "69817460576",
+    "project_id": "feedingtrackerauth",
+    "storage_bucket": "feedingtrackerauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69817460576:android:bbd338dee51f15a5166005",
+        "android_client_info": {
+          "package_name": "com.au.st4prj4.feedingtimetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69817460576-46jskqrb2e30irqll7dfon1f7b6hnuot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJJoUOrvkJgO0cKhhZHtoeQaXf5VPNTAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69817460576-46jskqrb2e30irqll7dfon1f7b6hnuot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
