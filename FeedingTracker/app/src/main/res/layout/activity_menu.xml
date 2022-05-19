@@ -6,32 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+    <Button
+        android:id="@+id/overviewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:src="@drawable/ic_baseline_insert_chart_24"
+        android:layout_marginEnd="50dp"
+        android:text="@string/Overview"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/darkgreen"
+        android:text="@string/startFeeding"
+        app:layout_constraintBottom_toTopOf="@+id/overviewButton"
+        app:layout_constraintStart_toStartOf="@+id/overviewButton" />
+
+    <Button
+        android:id="@+id/milkplanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/Milkplan"
+        app:layout_constraintStart_toStartOf="@+id/overviewButton"
+        app:layout_constraintTop_toBottomOf="@+id/overviewButton" />
+
+    <TextView
+        android:id="@+id/headlineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Welcome "
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
+    <TextView
+        android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/ic_baseline_list_alt_24"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        tools:layout_editor_absoluteX="148dp" />
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/headlineText"
+        app:layout_constraintTop_toBottomOf="@+id/headlineText" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/ic_baseline_play_arrow_24"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        tools:layout_editor_absoluteX="148dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
