@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordInput_edit);
         register = findViewById(R.id.register_txtV);
         progressBar = findViewById(R.id.progressBar);
-
         login = findViewById(R.id.login_btn);
 
         //button listener
@@ -45,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
             finish();
         }
     }

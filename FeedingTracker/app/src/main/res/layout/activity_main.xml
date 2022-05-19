@@ -8,38 +8,59 @@
     tools:context=".MainActivity"
     android:background="@color/white"
    >
-
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/welcomeText"
-        android:textSize="20sp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Feeding Tracker"
+        android:textAlignment="center"
+        android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/WelcomeMain_txtv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/welcomeText"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
+
+    <TextView
+        android:id="@+id/SubWelcomeMain_txtv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
         android:text="@string/welcomeTextMain"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/WelcomeMain_txtv" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/signIn_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="214dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="@color/darkgreen"
         android:text="@string/SignInButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="@+id/SubWelcomeMain_txtv"
+        app:layout_constraintStart_toStartOf="@+id/SubWelcomeMain_txtv"
+        app:layout_constraintTop_toBottomOf="@+id/SubWelcomeMain_txtv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

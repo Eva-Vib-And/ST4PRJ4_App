@@ -3,15 +3,6 @@ package com.au.st4prj4.feedingtimetracker.models;
 public class Account {
     String name;
     String childName;
-    int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -3,14 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_choose_feeding_type.xml" value="0.1461499493414387" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_edit_feeding_data.xml" value="0.1461499493414387" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_menu.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_milk_plan.xml" value="0.1461499493414387" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_overview.xml" value="0.1461499493414387" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_start_feeding.xml" value="0.1461499493414387" />
-        <entry key="..\:/Users/Bruger/source/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_start_feeding_by_bottle.xml" value="0.1461499493414387" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/drawable/aligmnet_slecetor.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/drawable/bottle_selector.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/drawable/gradient_background_sunset.xml" value="0.13958333333333334" />
@@ -29,6 +21,10 @@
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_start_feeding.xml" value="0.25" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/activity_start_feeding_by_bottle.xml" value="0.264" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/options_menu.xml" value="0.25" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/layout/popup_picture.xml" value="0.25" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/menu/option_menu.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/menu/popup.xml" value="0.25" />
         <entry key="..\:/Users/eva/Documents/GitHub/ST4PRJ4_App/FeedingTracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher_bottle.xml" value="0.14322916666666666" />
       </map>
     </option>

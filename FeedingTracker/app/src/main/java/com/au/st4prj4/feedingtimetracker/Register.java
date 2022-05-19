@@ -28,8 +28,8 @@ import java.util.Map;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private EditText email,password;
-    private TextView fullName;
+    private EditText email,password,fullName;
+   // private TextView fullName;
     private Button registerBtn;
     private ProgressBar progressBar;
     String userID;
@@ -49,20 +49,14 @@ public class Register extends AppCompatActivity {
         fullName = findViewById(R.id.fullName);
         registerBtn = findViewById(R.id.registorUser_btn);
         progressBar = findViewById(R.id.progressBar2);
-        fullName = findViewById(R.id.fullName);
-
+        //fullName = findViewById(R.id.fullName);
 
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(Register.this, MainActivity.class));
+            startActivity(new Intent(Register.this, MainMenuActivity.class));
             finish();
         }
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createUser();
-            }
-        });
+        registerBtn.setOnClickListener(view -> createUser());
     }
 
     private void createUser() {
@@ -85,7 +79,7 @@ public class Register extends AppCompatActivity {
                     saveUserDetail();
                     Toast.makeText(Register.this,"User registered successfully",Toast.LENGTH_SHORT).show();
 
-                    startActivity(new Intent(Register.this,MainActivity.class));
+                    startActivity(new Intent(Register.this,MainMenuActivity.class));
                 }else{
                     Toast.makeText(Register.this,"Registration Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(GONE);
