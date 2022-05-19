@@ -7,54 +7,45 @@
     tools:context=".StartFeedingByBottle">
 
     <TextView
-        android:id="@+id/bottleInfo_txtV"
-        android:layout_width="wrap_content"
+        android:id="@+id/feedingByBottleLabel_txtV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="150dp"
-        android:text="Bottle feeding "
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
         android:textSize="25dp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/FeedingByBottleIntro" />
+
+
+    <TextView
+        android:id="@+id/feedingByBottleinfo_txtV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="50dp"
+        android:text="Please input how much milk is filled in baby bottle:"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="@+id/feedingByBottleLabel_txtV"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/totalBottleInTake_txtV"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Input milk in bottle in ml  "
+        android:background="@color/gray"
+        android:layout_marginHorizontal="150dp"
+        android:hint="Milk in ml"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/bottleInfo_txtV"
-        app:layout_constraintTop_toBottomOf="@+id/bottleInfo_txtV" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedingByBottleinfo_txtV" />
 
-
-    <RadioGroup
-        android:id="@+id/bottleFinished_radiogrp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        app:layout_constraintStart_toStartOf="@+id/totalBottleInTake_txtV"
-        app:layout_constraintTop_toBottomOf="@+id/totalBottleInTake_txtV">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Finished bottle"
-            app:layout_constraintStart_toStartOf="@+id/totalBottleInTake_txtV"
-            app:layout_constraintTop_toBottomOf="@+id/totalBottleInTake_txtV">
-
-        </RadioButton>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Didn´t finish bottle"
-            app:layout_constraintStart_toStartOf="@+id/radioButton"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton" />
-
-    </RadioGroup>
 
     <Button
         android:id="@+id/backToChooseFeeding_btn"
@@ -68,13 +59,24 @@
 
     <Button
         android:id="@+id/done_btn_bottleFeeding"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Done"
+        android:textSize="18dp"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedingByBottleLabel_txtV"
+        app:srcCompat="@drawable/bottle_selector" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

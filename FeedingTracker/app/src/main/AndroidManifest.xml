@@ -10,21 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FeedingTracker.Boy">
         <activity
-            android:name=".Register"
+            android:name=".activity.Register"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-        </activity>
+            android:name=".activity.LoginActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".StartFeedingByBottle"
             android:exported="false" />
         <activity
-            android:name=".ChooseFeedingType"
+            android:name=".activity.ChooseFeedingType"
             android:exported="true" />
-        <activity
-            android:name=".StartFeedingByBreast"
-            android:exported="false" />
         <activity
             android:name=".MilkPlanActivity"
             android:exported="false" />
@@ -32,15 +28,11 @@
             android:name=".OverviewAcitivity"
             android:exported="false" />
         <activity
-            android:name=".ChooseMethodActivity"
-            android:exported="false" />
+            android:name=".activity.MainMenuActivity"
+            android:exported="true"></activity>
         <activity
-            android:name=".MainMenuActivity"
-            android:exported="true" >
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

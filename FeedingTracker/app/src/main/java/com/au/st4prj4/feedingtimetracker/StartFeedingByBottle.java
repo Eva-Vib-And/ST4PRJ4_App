@@ -1,11 +1,5 @@
 package com.au.st4prj4.feedingtimetracker;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,30 +7,33 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.au.st4prj4.feedingtimetracker.activity.MainMenuActivity;
 import com.au.st4prj4.feedingtimetracker.models.Feeding;
 import com.au.st4prj4.feedingtimetracker.models.FeedingList;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StartFeedingByBottle extends AppCompatActivity {
     Feeding feeding = new Feeding();
-    Button back_Btn, done_Btn;
+    Button back_Btn, save_Btn;
     TextView infoText_txtV;
     EditText totalBottleIntake_txtV;
-
-
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    String userID;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_feeding_by_bottle);
@@ -44,41 +41,46 @@ public class StartFeedingByBottle extends AppCompatActivity {
         setUp();
 
         back_Btn.setOnClickListener(view -> {
-            Intent backIntent = new Intent();
-            setResult(99,backIntent);
             finish();
         });
-        done_Btn.setOnClickListener(view -> {
+        save_Btn.setOnClickListener(view -> {
 
-            //add data to model
+            //add data to database
             String milk = totalBottleIntake_txtV.getText().toString();
-            feeding.setMilkInMl(Integer.parseInt(milk)); //tjek om dette virker
-            feeding.setFeedingType("Bottle");
+
+            feeding.setMilkInMl(Double.parseDouble(milk)); //tjek om dette virker
             LocalDate dateTime;
             dateTime= LocalDate.now();
-            //add data to feeding list to keep track of total feedings
-            FeedingList feedingList = new FeedingList();
-            feedingList.setDate(dateTime);
-           /* if(dateTime != feedingList.getDateTime()) {
-                if(feedingList.getDateTime()==null) {
-                    feedingList.setDate(dateTime);
-                    //make new object
-                }
-            }*/
-            feedingList.getTotaltFeedingsToday().add(feeding);
+            feeding.setDate(dateTime.toString());
 
-            Intent intent= new Intent();
-            setResult(90,intent);
-            finish();
+            saveData(feeding);
+            startActivity(new Intent(this, MainMenuActivity.class));
+        });
+    }
+
+    private void saveData(Feeding feeding) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("date", feeding.getDate());
+        data.put("milk",feeding.getMilkInMl());
+
+        DocumentReference df= db.collection("account").document(userID).collection("BottleFeeding").document();
+        df.set(data).addOnCompleteListener(task1 -> {
+            Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
+            Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
         });
     }
 
     private void setUp() {
         back_Btn = findViewById(R.id.backToChooseFeeding_btn);
-        done_Btn = findViewById(R.id.done_btn_bottleFeeding);
+        save_Btn = findViewById(R.id.done_btn_bottleFeeding);
 
-        infoText_txtV = findViewById(R.id.bottleInfo_txtV);
+        infoText_txtV = findViewById(R.id.feedingByBottleLabel_txtV);
         totalBottleIntake_txtV = findViewById(R.id.totalBottleInTake_txtV);
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        userID = mAuth.getCurrentUser().getUid();
     }
 
 }

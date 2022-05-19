@@ -1,28 +1,31 @@
-package com.au.st4prj4.feedingtimetracker;
+package com.au.st4prj4.feedingtimetracker.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.au.st4prj4.feedingtimetracker.MilkPlanActivity;
+import com.au.st4prj4.feedingtimetracker.OverviewAcitivity;
+import com.au.st4prj4.feedingtimetracker.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainMenuActivity extends AppCompatActivity {
-    private TextView txt_option;
+    private TextView txt_option, personal_welcome;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     String userID;
+    String fullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,8 @@ public class MainMenuActivity extends AppCompatActivity {
         Button milkplanButton = (Button) (findViewById(R.id.milkplanButton));
         //menu setup
         txt_option = findViewById(R.id.txt_option);
-
+        //text setup
+        personal_welcome = findViewById(R.id.headlineText);
         //fetch users data
         getUserData();
 
@@ -91,6 +95,12 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void getUserData() {
-
+        DocumentReference df = db.collection("account").document(userID);
+        df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                personal_welcome.setText("Welcome "+value.getString("fullName"));
+            }
+        });
     }
 }

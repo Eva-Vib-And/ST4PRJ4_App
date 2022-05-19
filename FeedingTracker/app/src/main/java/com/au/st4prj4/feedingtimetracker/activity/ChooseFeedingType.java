@@ -1,27 +1,23 @@
-package com.au.st4prj4.feedingtimetracker;
+package com.au.st4prj4.feedingtimetracker.activity;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.au.st4prj4.feedingtimetracker.R;
+import com.au.st4prj4.feedingtimetracker.StartFeedingByBottle;
+import com.au.st4prj4.feedingtimetracker.StartFeedingByBreast;
+
 public class ChooseFeedingType extends AppCompatActivity {
     private String userChooseFeedingType =null;
     Button nextActivity_btn;
 
-    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+    /*ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
             Log.d(TAG, "onActivityResult: back from startFeedingByBottle class");
@@ -32,7 +28,7 @@ public class ChooseFeedingType extends AppCompatActivity {
                 Log.d(TAG, "onActivityResult: back from startFeedingByBottle class by pressed back button");
             }
         }
-    });
+    });*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +39,16 @@ public class ChooseFeedingType extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ChooseFeedingType.this, StartFeedingByBottle.class); //need to go to correct activity
-                Intent intent2 = new Intent(ChooseFeedingType.this, StartFeedingByBottle.class);
+                Intent intent2 = new Intent(ChooseFeedingType.this, StartFeedingByBreast.class);
                 //startActivity(intent);
-                if (userChooseFeedingType.contains("Breast")){
+                /*if (userChooseFeedingType.contains("Breast")){
                     activityResultLauncher.launch(intent2);
-                }else { activityResultLauncher.launch(intent);}
+                }else { activityResultLauncher.launch(intent);}*/
+                if(userChooseFeedingType=="Breast"){
+                startActivity(intent2);
+                }else{
+                    startActivity(intent);
+                }
             }
         });
 
@@ -56,14 +57,9 @@ public class ChooseFeedingType extends AppCompatActivity {
     public void userChoseFeedingType(View view) {
         RadioGroup radioGrup = findViewById(R.id.RadioGruop);
         switch (radioGrup.getCheckedRadioButtonId()){
-            case R.id.rightBreast:
+            case R.id.Breast:
                 Toast.makeText(this,"right breast chosen",Toast.LENGTH_SHORT).show();
-                userChooseFeedingType ="Right Breast";
-                break;
-
-            case R.id.leftBreast:
-                Toast.makeText(this,"left breast chosen",Toast.LENGTH_SHORT).show();
-                userChooseFeedingType = " Left Beast";
+                userChooseFeedingType ="Breast";
                 break;
 
             case R.id.bottle:

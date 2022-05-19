@@ -3,15 +3,15 @@ package com.au.st4prj4.feedingtimetracker.models;
 import java.time.LocalDateTime;
 
 public class Feeding {
-    String FeedingType;
+    String date;
     double milkInMl;
 
-    public String getFeedingType() {
-        return FeedingType;
+    public String getDate() {
+        return date;
     }
 
-    public void setFeedingType(String feedingType) {
-        FeedingType = feedingType;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public double getMilkInMl() {

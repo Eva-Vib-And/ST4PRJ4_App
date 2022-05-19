@@ -1,14 +1,13 @@
-package com.au.st4prj4.feedingtimetracker;
+package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
+import com.au.st4prj4.feedingtimetracker.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         signin_btn = findViewById(R.id.signIn_btn);
         signin_btn.setOnClickListener(view -> {
-            startActivity(new Intent(this,LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
         });
 
 
        // FirebaseUser currentUser = mAuth.getCurrentUser();
         //userID = mAuth.getCurrentUser();
         if(mAuth.getCurrentUser()!=null){
-            startActivity(new Intent(MainActivity.this,MainMenuActivity.class));
+            startActivity(new Intent(MainActivity.this, MainMenuActivity.class));
         }
 
     }

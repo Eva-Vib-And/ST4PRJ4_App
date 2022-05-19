@@ -6,4 +6,9 @@
     <string name="welcomeText">Welcome</string>
     <string name="welcomeTextMain">This is your feeding time helper</string>
     <string name="SignInButton">Sign In</string>
+    <string name="Breast_radiobutton">Breast</string>
+    <string name="breast">breast</string>
+    <string name="FeedingByBottleIntro">Feeding by bottle</string>
+    <string name="Bottle_radiobutton">bottle</string>
+    <string name="bottle">bottle</string>
 </resources>
