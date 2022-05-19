@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FeedingTracker</string>
+    <string name="startFeeding">Start amning</string>
+    <string name="Overview">Overblik</string>
+    <string name="Milkplan">Mælkeplan</string>
+    <string name="welcomeText">Velkommen</string>
+    <string name="welcomeTextMain">Dette er din feeding time hjælper</string>
+    <string name="SignInButton">Log ind</string>
+    <string name="TotalText">"Total mængde mælk i dag: "</string>
+    <string name="overviewInfo">Dette er et overblik over dit barns måltider i denne uge</string>
+    <string name="numberofbreast">Antal gange du har ammet med bryst i denne uge</string>
+    <string name="overviewInfoText">Dit barns måltider i denne uge</string>
+    <string name="offeredBreast">"Tilbudt bryst i dag: "</string>
+    <string name="OfferedBottleText">Tilbudt bryst i dag: </string>
+</resources>

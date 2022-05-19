@@ -3,8 +3,13 @@
     <string name="startFeeding">Start Feeding</string>
     <string name="Overview">View History</string>
     <string name="Milkplan">Milkplan</string>
-    <string name="welcomeText" />
     <string name="welcomeText">Welcome</string>
     <string name="welcomeTextMain">This is your feeding time helper</string>
     <string name="SignInButton">Sign In</string>
+    <string name="TotalText">"Total amount of milk today: "</string>
+    <string name="overviewInfo">This is a weekly overview that shows your childs meals this week</string>
+    <string name="numberofbreast">Number of times you have breastfed this week</string>
+    <string name="overviewInfoText">Your child\'s meals this week</string>
+    <string name="offeredBreast">"Offered breast today: "</string>
+    <string name="OfferedBottleText">Offered bottle today: </string>
 </resources>
