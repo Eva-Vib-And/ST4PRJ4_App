@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="WelcomeNameMenu_txtv">Hej </string>
+    <string name="InfoMenu_txtv"> Håber du har en god dag. For at starte en amning tryk på ammebilledet. For at se et overblik af indtaget mælk tryk på graf billedet.</string>
+
+</resources>

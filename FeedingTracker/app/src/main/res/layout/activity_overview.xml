@@ -10,7 +10,9 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="79dp">
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"
@@ -28,30 +30,41 @@
 
         </com.github.mikephil.charting.charts.BarChart>
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="242dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/barChart"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="-31dp"
-            android:layout_marginEnd="85dp"
-            android:layout_marginBottom="43dp"
-            android:text="@string/overviewInfoText"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
 
 
 
     </RelativeLayout>
 
-
+    <TextView
+        android:id="@+id/offeredBottleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/OfferedBottleText"
+        android:textSize="18dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/overviewInfoText"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@+id/imageViewBreast"
         app:layout_constraintTop_toBottomOf="@+id/imageViewBreast"
@@ -62,18 +75,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="16dp"
         android:text="@string/offeredBreast"
+        android:textSize="18dp"
         app:layout_constraintStart_toEndOf="@+id/imageViewBreast"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewBreast" />
 
     <TextView
         android:id="@+id/totalNumberTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="90dp"
         android:text="@string/TotalText"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
@@ -86,22 +101,12 @@
         app:layout_constraintTop_toBottomOf="@+id/totalNumberTxt"
         app:srcCompat="@drawable/ic_breast_feeding_svgrepo_com" />
 
-    <TextView
-        android:id="@+id/offeredBottleTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="140dp"
-        android:text="@string/OfferedBottleText"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="366dp" />
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

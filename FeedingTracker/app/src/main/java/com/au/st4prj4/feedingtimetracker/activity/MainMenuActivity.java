@@ -1,13 +1,16 @@
 package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -25,6 +28,7 @@ public class MainMenuActivity extends AppCompatActivity {
     private TextView txt_option, personal_welcome;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private ImageView start, overview;
     String userID;
     String fullName;
 
@@ -38,18 +42,20 @@ public class MainMenuActivity extends AppCompatActivity {
         userID = mAuth.getCurrentUser().getUid();
 
         //buttons setup
-        Button startButton = (Button) (findViewById(R.id.startButton));
-        Button overviewButton = (Button) (findViewById(R.id.overviewButton));
+       // Button startButton = (Button) (findViewById(R.id.startButton));
+       // Button overviewButton = (Button) (findViewById(R.id.overviewButton));
         Button milkplanButton = (Button) (findViewById(R.id.milkplanButton));
         //menu setup
         txt_option = findViewById(R.id.txt_option);
-        //text setup
+        //general setup
         personal_welcome = findViewById(R.id.headlineText);
+        start = findViewById(R.id.start_img);
+        overview = findViewById(R.id.overview_img);
         //fetch users data
         getUserData();
 
-        //buttons listener
-        startButton.setOnClickListener(new View.OnClickListener() {
+        //listener
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //intent-objekt indeholder en destination - vi vil gå fra den ene aktivitet til den anden
@@ -57,7 +63,8 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        overviewButton.setOnClickListener(new View.OnClickListener() {
+        overview.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 //intent-objekt indeholder en destination - vi vil gå fra den ene aktivitet til den anden
@@ -102,7 +109,7 @@ public class MainMenuActivity extends AppCompatActivity {
         df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                personal_welcome.setText("Welcome "+value.getString("fullName"));
+                personal_welcome.setText(String.format(getResources().getString(R.string.WelcomeNameMenu_txtv)+" "+value.getString("fullName")));
             }
         });
     }

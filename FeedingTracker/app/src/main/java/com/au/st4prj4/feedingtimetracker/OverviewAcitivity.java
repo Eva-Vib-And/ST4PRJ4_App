@@ -19,17 +19,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class OverviewAcitivity extends AppCompatActivity {
     //initialize variable
     BarChart mBarChart;
-    LocalDate myObj = LocalDate.now();
     ArrayList<Feedings> input;
-    Feedings feed;
-    LocalDate date;
-    String feedDate;
-    double milkCount;
+    TextView breastMilk,bottleMilk;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +37,23 @@ public class OverviewAcitivity extends AppCompatActivity {
 
         //Assign variable
         mBarChart = findViewById(R.id.barChart);
+        breastMilk= findViewById(R.id.numberOfBreastTxt);
+        bottleMilk = findViewById(R.id.offeredBottleTxt);
 
+        breastMilk.setText(String.format(getResources().getString(R.string.offeredBreast)+ " 5.33 ml"));
+        bottleMilk.setText(String.format(getResources().getString(R.string.OfferedBottleText)+" 10.67 ml"));
         //Initialize array list
         ArrayList<BarEntry> barEntries = new ArrayList<>();
 
 
         input = new ArrayList<Feedings>(Arrays.asList(
-                new Feedings(15,"breast",LocalDate.of(2022, 05, 19)),
-                new Feedings(13,"bottle",LocalDate.of(2022,05,17)),
-                new Feedings(14,"breast",LocalDate.of(2022, 05, 17)),
-                new Feedings(18,"bottle",LocalDate.of(2022,05,17)),
-                new Feedings(13,"breast",LocalDate.of(2022, 05, 17)),
-                new Feedings(16,"bottle",LocalDate.of(2022,05,17)),
-                new Feedings( 13,"breast",LocalDate.of(2022, 05, 18))
-        ));
+                new Feedings(15,"breast",LocalDate.of(2022, 05, 15)),
+                new Feedings(13,"bottle",LocalDate.of(2022,05,16)),
+                new Feedings(12,"breast",LocalDate.of(2022, 05, 17)),
+                new Feedings(18,"bottle",LocalDate.of(2022,05,18)),
+                new Feedings(13,"breast",LocalDate.of(2022, 05, 19)),
+                new Feedings(16,"bottle",LocalDate.of(2022,05,20))
+                ));
 
         showDateBars();
     }

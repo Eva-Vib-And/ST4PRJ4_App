@@ -10,6 +10,14 @@ public class Feeding {
         return date;
     }
 
+    public Feeding() {
+    }
+
+    public Feeding( double milkInMl,String date) {
+        this.date = date;
+        this.milkInMl = milkInMl;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }

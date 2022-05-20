@@ -14,33 +14,35 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
-    <Button
+
+    <TextView
         android:id="@+id/overviewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
         android:text="@string/Overview"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintTop_toBottomOf="@+id/overview_img" />
 
-    <Button
+    <TextView
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/darkgreen"
         android:text="@string/startFeeding"
-        app:layout_constraintBottom_toTopOf="@+id/overviewButton"
-        app:layout_constraintStart_toStartOf="@+id/overviewButton" />
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_img" />
 
     <Button
         android:id="@+id/milkplanButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
         android:text="@string/Milkplan"
         app:layout_constraintStart_toStartOf="@+id/overviewButton"
         app:layout_constraintTop_toBottomOf="@+id/overviewButton" />
@@ -51,18 +53,45 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="40dp"
-        android:text="Welcome "
-        android:textSize="20sp"
+        android:text="@string/WelcomeNameMenu_txtv"
+        android:textSize="25sp"
         android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Welcome" />
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/InfoMenu_txtv"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/headlineText"
         app:layout_constraintTop_toBottomOf="@+id/headlineText" />
+
+    <ImageView
+        android:id="@+id/start_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:srcCompat="@drawable/icons8_mother_64" />
+
+    <ImageView
+        android:id="@+id/overview_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
+        app:srcCompat="@drawable/ic_bar_chart_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.au.st4prj4.feedingtimetracker.activity;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -114,6 +115,9 @@ public class StartFeedingByBreast extends AppCompatActivity {
             Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
             Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
         });
+
+        startActivity(new Intent(this,MainMenuActivity.class));
+        finish();
     }
 
     private void setUp() {

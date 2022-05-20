@@ -17,4 +17,6 @@
     <string name="overviewInfoText">Your child\'s meals this week</string>
     <string name="offeredBreast">"Offered breast today: "</string>
     <string name="OfferedBottleText">Offered bottle today: </string>
+    <string name="WelcomeNameMenu_txtv">Welcome</string>
+    <string name="InfoMenu_txtv"> Hope you are having a good day. To start a feeding press the feeding image. To see previews feeding data press the chart image</string>
 </resources>
