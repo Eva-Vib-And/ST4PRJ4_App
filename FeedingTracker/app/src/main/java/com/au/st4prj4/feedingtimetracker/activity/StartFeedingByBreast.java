@@ -78,7 +78,7 @@ public class StartFeedingByBreast extends AppCompatActivity {
         double x = random.nextDouble()*(max-min+1)+min;
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String decimalConverter = decimalFormat.format(x);
-        feeding.setMilkInMl(Double.parseDouble(decimalConverter));
+        feeding.setMilkInMl(x);
         LocalDate dateTime;
         dateTime= LocalDate.now();
         feeding.setDate(dateTime.toString());

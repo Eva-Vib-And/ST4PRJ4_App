@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.StartFeedingByBreast">
+
     <TextView
         android:id="@+id/breastFeedingTitle_txtV"
         android:layout_width="match_parent"
@@ -15,8 +16,9 @@
         android:text="Feeding by breast"
         android:textAlignment="center"
         android:textSize="25dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="60dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/breastfeedingInfo_txtV"

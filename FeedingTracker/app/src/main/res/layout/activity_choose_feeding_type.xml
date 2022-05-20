@@ -7,7 +7,21 @@
     tools:context=".activity.ChooseFeedingType"
     >
 
-
+    <TextView
+        android:id="@+id/chooseFeedingType_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Choose how you are going to feed"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <RadioGroup
         android:id="@+id/RadioGruop"
         android:layout_width="wrap_content"
@@ -47,10 +61,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-black"
+        android:text="@string/Breast_radiobutton"
         android:textSize="20dp"
         app:layout_constraintStart_toEndOf="@+id/RadioGruop"
-        app:layout_constraintTop_toTopOf="@+id/RadioGruop"
-        tools:text="@string/Breast_radiobutton" />
+        app:layout_constraintTop_toTopOf="@+id/RadioGruop" />
 
     <TextView
         android:id="@+id/radiobutton_title_bottle"
@@ -58,10 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:fontFamily="sans-serif-black"
+        android:text="@string/Bottle_radiobutton"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/RadioGruop"
-        app:layout_constraintStart_toEndOf="@+id/RadioGruop"
-        tools:text="@string/Bottle_radiobutton"/>
+        app:layout_constraintStart_toEndOf="@+id/RadioGruop" />
 
     <Button
         android:id="@+id/next_btn"
