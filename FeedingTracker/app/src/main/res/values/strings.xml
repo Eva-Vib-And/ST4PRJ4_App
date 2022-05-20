@@ -11,4 +11,10 @@
     <string name="FeedingByBottleIntro">Feeding by bottle</string>
     <string name="Bottle_radiobutton">bottle</string>
     <string name="bottle">bottle</string>
+    <string name="TotalText">"Total amount of milk today: "</string>
+    <string name="overviewInfo">This is a weekly overview that shows your childs meals this week</string>
+    <string name="numberofbreast">Number of times you have breastfed this week</string>
+    <string name="overviewInfoText">Your child\'s meals this week</string>
+    <string name="offeredBreast">"Offered breast today: "</string>
+    <string name="OfferedBottleText">Offered bottle today: </string>
 </resources>
