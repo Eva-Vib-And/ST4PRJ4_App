@@ -10,8 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.au.st4prj4.feedingtimetracker.R;
-import com.au.st4prj4.feedingtimetracker.StartFeedingByBottle;
-import com.au.st4prj4.feedingtimetracker.StartFeedingByBreast;
 
 public class ChooseFeedingType extends AppCompatActivity {
     private String userChooseFeedingType =null;

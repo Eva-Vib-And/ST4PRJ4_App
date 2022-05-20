@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartFeedingByBreast">
+    tools:context=".activity.StartFeedingByBreast">
     <TextView
         android:id="@+id/breastFeedingTitle_txtV"
         android:layout_width="match_parent"

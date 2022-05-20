@@ -16,7 +16,7 @@
             android:name=".activity.LoginActivity"
             android:exported="true"></activity>
         <activity
-            android:name=".StartFeedingByBottle"
+            android:name=".activity.StartFeedingByBottle"
             android:exported="false" />
         <activity
             android:name=".activity.ChooseFeedingType"
@@ -28,7 +28,7 @@
             android:name=".OverviewAcitivity"
             android:exported="false" />
         <activity
-            android:name=".StartFeedingByBreast"
+            android:name=".activity.StartFeedingByBreast"
             android:exported="false" />
         <activity
             android:name=".activity.MainMenuActivity"

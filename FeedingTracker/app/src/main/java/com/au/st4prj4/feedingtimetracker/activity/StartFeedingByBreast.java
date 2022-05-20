@@ -1,4 +1,4 @@
-package com.au.st4prj4.feedingtimetracker;
+package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.au.st4prj4.feedingtimetracker.R;
 import com.au.st4prj4.feedingtimetracker.models.Feeding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
