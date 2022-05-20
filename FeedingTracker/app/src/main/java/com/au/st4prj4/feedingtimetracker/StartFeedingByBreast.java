@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,10 +18,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class StartFeedingByBreast extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -28,8 +32,10 @@ public class StartFeedingByBreast extends AppCompatActivity {
     String userID;
     ProgressBar progressBar;
     Button done;
+    ImageView logo;
     TextView breastFeedingInfo;
     Feeding feeding = new Feeding();
+   // private ExecutorService executorService;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -37,17 +43,28 @@ public class StartFeedingByBreast extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_feeding_by_breast);
         setUp();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         //generate some demo data
         generateDemoData();
+
         done.setOnClickListener(view -> {
             saveData(feeding);
         });
+
+        logo.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            finalSetup();
+        }
+});
     }
+
+    private void finalSetup() {
+
+        breastFeedingInfo.setText("Data received. You can press done to save and return");
+        progressBar.setVisibility(View.GONE);
+        done.setVisibility(View.VISIBLE);
+    }
+
     //this method is purely for demo purposes
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void generateDemoData() {
@@ -57,15 +74,34 @@ public class StartFeedingByBreast extends AppCompatActivity {
         int min = 0;
         int max = 20;
         double x = random.nextDouble()*(max-min+1)+min;
-        feeding.setMilkInMl(x);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String decimalConverter = decimalFormat.format(x);
+        feeding.setMilkInMl(Double.parseDouble(decimalConverter));
         LocalDate dateTime;
         dateTime= LocalDate.now();
         feeding.setDate(dateTime.toString());
         //double random = ThreadLocalRandom.current().nextDouble(min, max);
-        breastFeedingInfo.setText("Data received. You can press done to save and return");
-        progressBar.setVisibility(View.GONE);
 
     }
+
+    /*private void waiting() {
+        if(executorService == null) {
+            executorService = Executors.newSingleThreadExecutor();
+        }
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                //sleep for one minute
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Log.e("Error", "run: ERROR", e);
+                }
+
+                finalSetup();
+            }
+        });
+    }*/
 
     private void saveData(Feeding feeding) {
         Map<String, Object> data = new HashMap<>();
@@ -89,5 +125,7 @@ public class StartFeedingByBreast extends AppCompatActivity {
         progressBar= findViewById(R.id.progressBar_breastFeeding);
         done = findViewById(R.id.breastFeedingDone_btn);
         breastFeedingInfo = findViewById(R.id.breastfeedingInfo_txtV);
+        logo= findViewById(R.id.breastFeedingLogo_img);
+
     }
 }
