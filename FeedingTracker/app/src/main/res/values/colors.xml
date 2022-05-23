@@ -25,4 +25,8 @@
     <color name="green_3">#bddcbd</color>
     <color name="darkgreen">#5fab5f</color>
 
+    <color name="orange">#ff7000</color>
+    <color name="mildOrange">#ff7322</color>
+    <color name="lighterorange">#ffb44d</color>
+
 </resources>

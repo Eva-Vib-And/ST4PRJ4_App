@@ -36,4 +36,5 @@
     <string name="FeedingBreastText">Feeding by breast</string>
     <string name="WaitText">Please wait for data</string>
     <string name="DoneText">Done</string>
+    <string name="DataRecievedPressDone">Data received. You can press done to save and return</string>
 </resources>

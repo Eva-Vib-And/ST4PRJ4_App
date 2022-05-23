@@ -56,7 +56,7 @@ public class ChooseFeedingType extends AppCompatActivity {
         RadioGroup radioGrup = findViewById(R.id.RadioGruop);
         switch (radioGrup.getCheckedRadioButtonId()){
             case R.id.Breast:
-                Toast.makeText(this,"right breast chosen",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"breast chosen",Toast.LENGTH_SHORT).show();
                 userChooseFeedingType ="Breast";
                 break;
 

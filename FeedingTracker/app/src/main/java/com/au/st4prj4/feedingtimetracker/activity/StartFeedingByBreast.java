@@ -74,7 +74,7 @@ public class StartFeedingByBreast extends AppCompatActivity {
         Random random = new Random();
         // Generates random integers 0 to 49
         int min = 0;
-        int max = 20;
+        int max = 10;
         double x = random.nextDouble()*(max-min+1)+min;
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String decimalConverter = decimalFormat.format(x);
