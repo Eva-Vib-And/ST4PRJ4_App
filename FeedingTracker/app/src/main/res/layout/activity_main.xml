@@ -8,13 +8,14 @@
     tools:context=".activity.MainActivity"
     android:background="@color/white"
    >
+
     <TextView
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="Feeding Tracker"
+        android:text="@string/feedingTrackerText"
         android:textAlignment="center"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -28,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="184dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/welcomeText"
         android:textAlignment="center"
@@ -38,29 +39,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner" />
 
-    <TextView
-        android:id="@+id/SubWelcomeMain_txtv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-black"
-        android:textAlignment="center"
-        android:text="@string/welcomeTextMain"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/WelcomeMain_txtv" />
-
     <Button
         android:id="@+id/signIn_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="@color/darkgreen"
         android:text="@string/SignInButton"
         app:layout_constraintEnd_toEndOf="@+id/SubWelcomeMain_txtv"
         app:layout_constraintStart_toStartOf="@+id/SubWelcomeMain_txtv"
         app:layout_constraintTop_toBottomOf="@+id/SubWelcomeMain_txtv" />
+
+    <TextView
+        android:id="@+id/SubWelcomeMain_txtv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/welcomeTextMain"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/WelcomeMain_txtv"
+        tools:layout_editor_absoluteX="30dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="87dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/icons8_mother_64"
+        app:layout_constraintStart_toStartOf="@+id/banner"
+        app:layout_constraintTop_toBottomOf="@+id/banner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

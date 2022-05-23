@@ -5,7 +5,7 @@
     <string name="Overview">Overblik</string>
     <string name="Milkplan">Mælkeplan</string>
     <string name="welcomeText">Velkommen</string>
-    <string name="welcomeTextMain">Dette er din feeding time hjælper</string>
+    <string name="welcomeTextMain">Dette er din Feeding Tracker</string>
     <string name="SignInButton">Log ind</string>
     <string name="TotalText">"Total mængde mælk i dag: "</string>
     <string name="overviewInfo">Dette er et overblik over dit barns måltider i denne uge</string>
@@ -18,4 +18,21 @@
     <string name="FeedingByBottleIntro">Spis med flaske</string>
     <string name="Bottle_radiobutton">Flaske</string>
     <string name="bottle">Flaske</string>
+    <string name="feedingTrackerText">Feeding Tracker</string>
+    <string name="chooseTypeText">Vælg om du vil give mælk med bryst eller flaske</string>
+    <string name="LoginText">Login</string>
+    <string name="EmailText">Email Adresse</string>
+    <string name="PasswordText">Adgangskode</string>
+    <string name="ForgotText">Glemt adgangskode?</string>
+    <string name="RegisterText">Opret</string>
+    <string name="RegisterPageText">Opret bruger</string>
+    <string name="FullNameText">Fulde navn</string>
+    <string name="MailText">Email</string>
+    <string name="RegisterUserText">Opret bruger</string>
+    <string name="InsertMilkText"> Indtast hvor meget mælk, der er i flasken:</string>
+    <string name="Milk">Mælk i ml</string>
+    <string name="SaveText">Gem</string>
+    <string name="FeedingBreastText">Amning med bryst</string>
+    <string name="WaitText">Vent venligst på data</string>
+    <string name="DoneText">Færdig</string>
 </resources>

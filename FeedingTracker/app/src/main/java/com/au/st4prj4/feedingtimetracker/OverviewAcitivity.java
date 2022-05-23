@@ -21,6 +21,8 @@ import java.util.Arrays;
 import android.os.Bundle;
 import android.widget.TextView;
 
+//Code source: https://getridbug.com/android/plot-data-value-on-timeline-axis-in-bar-chart-using-mpandroidchart/
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class OverviewAcitivity extends AppCompatActivity {
     //initialize variable
@@ -72,35 +74,13 @@ public class OverviewAcitivity extends AppCompatActivity {
         }
         xAxisLabel.add(LocalDate.now());
 
-        /*
-        valuesList.add((double) 40); //tue
-        valuesList.add((double) 30); //wed
-        valuesList.add((double) 20); //thu
-        valuesList.add((double) 40); //fri
-        valuesList.add((double) 30); //sat
-        valuesList.add((double) 20); //sun
-*/
-
         //prepare Bar Entries
         ArrayList<BarEntry> entries = new ArrayList<>();
         for (int i = 0; i < valuesList.size(); i++) {
             BarEntry barEntry = new BarEntry(i + 1, valuesList.get(i).floatValue()); //start always from x=1 for the first bar
             entries.add(barEntry);
         }
-
-        //initialize x Axis Labels (labels for 13 vertical grid lines)
-        //final ArrayList<LocalDate> xAxisLabel = new ArrayList<>();
-        /*
-        xAxisLabel.add(myObj);//this label will be mapped to the 1st index of the valuesList
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj);
-        xAxisLabel.add(myObj); //empty label for the last vertical grid line on Y-Right Axis
-         */
-
+        
         //initialize xAxis
         XAxis xAxis = mBarChart.getXAxis();
         xAxis.enableGridDashedLine(10f, 10f, 0f);

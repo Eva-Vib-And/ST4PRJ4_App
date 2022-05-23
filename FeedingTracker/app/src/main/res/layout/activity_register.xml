@@ -10,9 +10,9 @@
         android:id="@+id/Register_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
-        android:text="Feeding Tracker"
+        android:text="@string/feedingTrackerText"
         android:textAlignment="center"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -20,12 +20,14 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/Register_subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:fontFamily="sans-serif-black"
-        android:text="Register page"
+        android:text="@string/RegisterPageText"
         android:textAlignment="center"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -41,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="35dp"
-        android:hint="Full Name"
+        android:hint="@string/FullNameText"
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:hint="Email"
+        android:hint="@string/EmailText"
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/fullName"
@@ -66,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="35dp"
-        android:hint="Password"
+        android:hint="@string/PasswordText"
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,17 +76,17 @@
         app:layout_constraintTop_toBottomOf="@+id/newEmailInput_edit" />
 
     <Button
+        android:id="@+id/registorUser_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registor User"
         android:layout_marginHorizontal="30dp"
-        android:id="@+id/registorUser_btn"
         android:layout_marginTop="35dp"
+        android:text="@string/RegisterUserText"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newPasswordInput_edit"/>
+        app:layout_constraintTop_toBottomOf="@+id/newPasswordInput_edit" />
     <ProgressBar
         android:id="@+id/progressBar2"
         style="?android:attr/progressBarStyleLarge"

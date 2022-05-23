@@ -19,4 +19,21 @@
     <string name="OfferedBottleText">Offered bottle today: </string>
     <string name="WelcomeNameMenu_txtv">Welcome</string>
     <string name="InfoMenu_txtv"> Hope you are having a good day. To start a feeding press the feeding image. To see previews feeding data press the chart image</string>
+    <string name="feedingTrackerText">Feeding Tracker</string>
+    <string name="chooseTypeText">Choose how you are going to feed</string>
+    <string name="LoginText">Login</string>
+    <string name="EmailText">Email Address</string>
+    <string name="PasswordText">Password</string>
+    <string name="ForgotText">Forgot password?</string>
+    <string name="RegisterText">Register</string>
+    <string name="RegisterPageText">Register page</string>
+    <string name="FullNameText">Full name</string>
+    <string name="MailText">Email</string>
+    <string name="RegisterUserText">Register user</string>
+    <string name="InsertMilkText">Please input how much milk is filled in baby bottle:</string>
+    <string name="Milk">Milk in ml</string>
+    <string name="SaveText">Save</string>
+    <string name="FeedingBreastText">Feeding by breast</string>
+    <string name="WaitText">Please wait for data</string>
+    <string name="DoneText">Done</string>
 </resources>
