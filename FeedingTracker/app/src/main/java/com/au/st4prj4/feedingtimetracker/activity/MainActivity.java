@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.au.st4prj4.feedingtimetracker.R;
 import com.google.firebase.auth.FirebaseAuth;
 
+//This app i made mainly by the knowlogde from Aarhus University course SWMAD-01 in fall 2021 and Android developer: https://developer.android.com/
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
