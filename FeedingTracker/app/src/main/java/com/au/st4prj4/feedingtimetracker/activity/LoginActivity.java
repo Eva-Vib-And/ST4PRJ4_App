@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.au.st4prj4.feedingtimetracker.R;
 import com.au.st4prj4.feedingtimetracker.viewmodels.LoginViewModel;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
    // private FirebaseAuth mAuth;
@@ -24,8 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email,password;
     private ProgressBar progressBar;
     private LoginViewModel viewModel; //viewModel
-    String userID;
-    int SignInSucces =0;
+    FirebaseUser userID;
+    int SignInSucces = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         //setting up the viewModel so we can get data from repository through here.
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         userID = viewModel.getCurrentUser();
-
-        // Initialize Firebase Auth
-        //mAuth = FirebaseAuth.getInstance();
 
         //Setup
         email = findViewById(R.id.emailInput_edit);
@@ -72,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             SignInSucces= viewModel.signIn(emailInput,passwordInput);
             if(SignInSucces == 1){
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
                 finish();
             }else if(SignInSucces ==-1){
                 //Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();

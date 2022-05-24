@@ -3,6 +3,7 @@ package com.au.st4prj4.feedingtimetracker.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import android.widget.ProgressBar;
 
 import com.au.st4prj4.feedingtimetracker.R;
 import com.au.st4prj4.feedingtimetracker.viewmodels.RegisterViewModel;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Register extends AppCompatActivity {
@@ -21,7 +23,8 @@ public class Register extends AppCompatActivity {
     private EditText email,password,fullName;
     private Button registerBtn;
     private ProgressBar progressBar;
-    String userID;
+    FirebaseUser userID;
+    Context context;
 
     private RegisterViewModel viewModel; //viewModel
     int CreateUserSucces =0;
@@ -33,7 +36,7 @@ public class Register extends AppCompatActivity {
         //setting up the viewModel so we can get data from repository through here.
         viewModel = new ViewModelProvider(Register.this).get(RegisterViewModel.class);
         userID = viewModel.getCurrentUser();
-
+        context = getApplication().getApplicationContext();
 
         email = findViewById(R.id.newEmailInput_edit);
         password = findViewById(R.id.newPasswordInput_edit);
@@ -64,10 +67,10 @@ public class Register extends AppCompatActivity {
         }
         else {
             progressBar.setVisibility(View.VISIBLE);
-            CreateUserSucces= viewModel.createUser(emailInput, passwordInput);
+            CreateUserSucces= viewModel.createUser(emailInput, passwordInput,context);
             if(CreateUserSucces == 1){
                 saveUserDetail();
-                startActivity(new Intent(Register.this, MainActivity.class));
+                startActivity(new Intent(Register.this, MainMenuActivity.class));
                 finish();
             }else if(CreateUserSucces ==-1){
                 //Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
@@ -90,6 +93,7 @@ public class Register extends AppCompatActivity {
 
     private void saveUserDetail() {
         viewModel.saveUserDetails(fullName.getText().toString(),email.getText().toString());
+        progressBar.setVisibility(View.INVISIBLE);
         //old save user code
       /*  userID = mAuth.getCurrentUser().getUid();
         // Create a new user with a first name and email

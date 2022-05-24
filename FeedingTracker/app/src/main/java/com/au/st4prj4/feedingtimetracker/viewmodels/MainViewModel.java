@@ -8,21 +8,17 @@ import androidx.lifecycle.AndroidViewModel;
 import com.au.st4prj4.feedingtimetracker.Repository;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginViewModel extends AndroidViewModel{
+public class MainViewModel extends AndroidViewModel {
     public Repository repository;
-    FirebaseUser currentUser;
+    private FirebaseUser currentUser;
 
-    public LoginViewModel(@NonNull Application application) {
+    public MainViewModel(@NonNull Application application) {
         super(application);
         this.repository = Repository.getInstance(application);
-        currentUser= repository.getCurrentUserOfApp();
+        currentUser = repository.getCurrentUserOfApp();
     }
 
     public FirebaseUser getCurrentUser(){
         return currentUser;
     }
-    public int signIn(String email, String pw){
-    return repository.signInUsingEmailAndPW(email,pw);
-    }
-
 }

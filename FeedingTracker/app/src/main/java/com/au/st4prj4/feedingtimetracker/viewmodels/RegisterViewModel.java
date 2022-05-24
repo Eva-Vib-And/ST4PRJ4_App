@@ -3,31 +3,28 @@ package com.au.st4prj4.feedingtimetracker.viewmodels;
 import android.app.Application;
 import android.content.Context;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.au.st4prj4.feedingtimetracker.Repository;
+import com.google.firebase.auth.FirebaseUser;
 
 
-public class RegisterViewModel extends ViewModel {
+public class RegisterViewModel extends AndroidViewModel {
     public Repository repository;
-    String currentUser;
+    private FirebaseUser currentUser;
     int returnNumber;
 
     public RegisterViewModel(Application application) {
         super(application);
         repository = Repository.getInstance(application);
-        currentUser= repository.getUserID();
-    }
-    public RegisterViewModel(){
-
+        currentUser= repository.getCurrentUserOfApp();
     }
 
-    public String getCurrentUser(){
+    public FirebaseUser getCurrentUser(){
         return currentUser;
     }
-    public int createUser(String email, String pw){
-        returnNumber= repository.CreateUserUsingEmailAndPW(email,pw);
+    public int createUser(String email, String pw, Context context){
+        returnNumber = repository.CreateUserUsingEmailAndPW(email,pw, context);
         return returnNumber;
     }
     public void saveUserDetails(String name, String email){

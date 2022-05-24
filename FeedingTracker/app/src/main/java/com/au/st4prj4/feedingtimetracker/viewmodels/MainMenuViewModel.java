@@ -3,25 +3,24 @@ package com.au.st4prj4.feedingtimetracker.viewmodels;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.au.st4prj4.feedingtimetracker.Repository;
+import com.google.firebase.auth.FirebaseUser;
 
-public class MainMenuViewModel extends ViewModel {
+public class MainMenuViewModel extends AndroidViewModel {
     public Repository repository;
-    String currentUser;
+    FirebaseUser currentUser;
     String userName;
 
     public MainMenuViewModel(@NonNull Application application) {
+        super(application);
         this.repository = Repository.getInstance(application);
-        currentUser= repository.getUserID();
+        currentUser= repository.getCurrentUserOfApp();
 
     }
 
-    public MainMenuViewModel() {
-    }
-
-    public String getCurrentUser(){
+    public FirebaseUser getCurrentUser(){
 
         return currentUser;
     }
