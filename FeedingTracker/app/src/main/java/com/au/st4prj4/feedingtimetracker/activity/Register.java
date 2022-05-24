@@ -1,53 +1,48 @@
 package com.au.st4prj4.feedingtimetracker.activity;
 
-import static android.view.View.GONE;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
 
 import com.au.st4prj4.feedingtimetracker.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.au.st4prj4.feedingtimetracker.viewmodels.RegisterViewModel;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class Register extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+
     private EditText email,password,fullName;
-   // private TextView fullName;
     private Button registerBtn;
     private ProgressBar progressBar;
     String userID;
-    FirebaseFirestore db;
+
+    private RegisterViewModel viewModel; //viewModel
+    int CreateUserSucces =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        //setting up the viewModel so we can get data from repository through here.
+        viewModel = new ViewModelProvider(Register.this).get(RegisterViewModel.class);
+        userID = viewModel.getCurrentUser();
 
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
 
         email = findViewById(R.id.newEmailInput_edit);
         password = findViewById(R.id.newPasswordInput_edit);
         fullName = findViewById(R.id.fullName);
         registerBtn = findViewById(R.id.registorUser_btn);
         progressBar = findViewById(R.id.progressBar2);
-        //fullName = findViewById(R.id.fullName);
 
-        if(mAuth.getCurrentUser()!=null){
+
+        if(userID!=null){
             startActivity(new Intent(Register.this, MainMenuActivity.class));
             finish();
         }
@@ -69,8 +64,17 @@ public class Register extends AppCompatActivity {
         }
         else {
             progressBar.setVisibility(View.VISIBLE);
-
-            mAuth.createUserWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(task -> {
+            CreateUserSucces= viewModel.createUser(emailInput, passwordInput);
+            if(CreateUserSucces == 1){
+                saveUserDetail();
+                startActivity(new Intent(Register.this, MainActivity.class));
+                finish();
+            }else if(CreateUserSucces ==-1){
+                //Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+            }
+            //old save user funktion
+            /*mAuth.createUserWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     saveUserDetail();
                     Toast.makeText(Register.this,"User registered successfully",Toast.LENGTH_SHORT).show();
@@ -80,12 +84,14 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this,"Registration Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(GONE);
                 }
-            });
+            });*/
         }
     }
 
     private void saveUserDetail() {
-        userID = mAuth.getCurrentUser().getUid();
+        viewModel.saveUserDetails(fullName.getText().toString(),email.getText().toString());
+        //old save user code
+      /*  userID = mAuth.getCurrentUser().getUid();
         // Create a new user with a first name and email
         Map<String, Object> user = new HashMap<>();
         user.put("fullName", fullName.getText().toString());
@@ -95,7 +101,7 @@ public class Register extends AppCompatActivity {
 
        df.set(user).addOnCompleteListener(task1 -> {
             Log.d("Register:", "onSuccess: new user saved for "+ userID);
-        });
+        });*/
     }
 
   /*  // Initialize Firebase Auth

@@ -3,6 +3,8 @@ package com.au.st4prj4.feedingtimetracker.activity;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
@@ -14,9 +16,10 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.au.st4prj4.feedingtimetracker.MilkPlanActivity;
 import com.au.st4prj4.feedingtimetracker.OverviewAcitivity;
 import com.au.st4prj4.feedingtimetracker.R;
+import com.au.st4prj4.feedingtimetracker.viewmodels.LoginViewModel;
+import com.au.st4prj4.feedingtimetracker.viewmodels.MainMenuViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -26,20 +29,25 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class MainMenuActivity extends AppCompatActivity {
     private TextView txt_option, personal_welcome;
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
+   // private FirebaseAuth mAuth;
+   // private FirebaseFirestore db;
     private ImageView start, overview;
+    private MainMenuViewModel viewModel; //viewModel
     String userID;
-    String fullName;
+    //String fullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        //setting up the viewModel so we can get data from repository through here.
+        viewModel = new ViewModelProvider(this).get(MainMenuViewModel.class);
+        userID = viewModel.getCurrentUser();
+
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-        userID = mAuth.getCurrentUser().getUid();
+        //mAuth = FirebaseAuth.getInstance();
+        //  db = FirebaseFirestore.getInstance();
+        //userID = mAuth.getCurrentUser().getUid();
 
         //buttons setup
        // Button startButton = (Button) (findViewById(R.id.startButton));
@@ -92,7 +100,8 @@ public class MainMenuActivity extends AppCompatActivity {
                  public boolean onMenuItemClick(MenuItem menuItem) {
                     switch (menuItem.getItemId()) {
                         case R.id.logout:
-                            mAuth.signOut();
+                            //mAuth.signOut();
+                            viewModel.signUserOut();
                             startActivity(new Intent(MainMenuActivity.this, LoginActivity.class));
                             finish();
                             break;
@@ -105,12 +114,15 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void getUserData() {
-        DocumentReference df = db.collection("account").document(userID);
+        String username = viewModel.getUserName();
+        personal_welcome.setText(String.format(getResources().getString(R.string.WelcomeNameMenu_txtv)+" "+username));
+
+       /* DocumentReference df = db.collection("account").document(userID);
         df.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 personal_welcome.setText(String.format(getResources().getString(R.string.WelcomeNameMenu_txtv)+" "+value.getString("fullName")));
             }
-        });
+        });*/
     }
 }

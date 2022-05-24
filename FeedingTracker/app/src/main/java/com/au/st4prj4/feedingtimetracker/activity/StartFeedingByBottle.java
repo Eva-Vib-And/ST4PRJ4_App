@@ -13,9 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.au.st4prj4.feedingtimetracker.R;
-import com.au.st4prj4.feedingtimetracker.activity.MainMenuActivity;
 import com.au.st4prj4.feedingtimetracker.models.Feeding;
-import com.au.st4prj4.feedingtimetracker.models.FeedingList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;

@@ -22,7 +22,7 @@
             android:name=".activity.ChooseFeedingType"
             android:exported="true" />
         <activity
-            android:name=".MilkPlanActivity"
+            android:name=".activity.MilkPlanActivity"
             android:exported="false" />
         <activity
             android:name=".OverviewAcitivity"

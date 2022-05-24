@@ -1,6 +1,7 @@
 package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,22 +14,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.au.st4prj4.feedingtimetracker.R;
+import com.au.st4prj4.feedingtimetracker.viewmodels.LoginViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
+   // private FirebaseAuth mAuth;
     private TextView register;
     private Button login;
     private EditText email,password;
     private ProgressBar progressBar;
+    private LoginViewModel viewModel; //viewModel
+    String userID;
+    int SignInSucces =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //setting up the viewModel so we can get data from repository through here.
+        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        userID = viewModel.getCurrentUser();
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
+
         //Setup
         email = findViewById(R.id.emailInput_edit);
         password = findViewById(R.id.passwordInput_edit);
@@ -43,10 +52,11 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(this, Register.class));
         });
 
-        if(mAuth.getCurrentUser()!=null){
+        if(userID!=null){
             startActivity(new Intent(LoginActivity.this, MainMenuActivity.class));
             finish();
         }
+
     }
     private void loginUser() {
         String emailInput = email.getText().toString();
@@ -60,9 +70,16 @@ public class LoginActivity extends AppCompatActivity {
             password.requestFocus();
         } else {
             progressBar.setVisibility(View.VISIBLE);
-
-            //sign in
-            mAuth.signInWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(task -> {
+            SignInSucces= viewModel.signIn(emailInput,passwordInput);
+            if(SignInSucces == 1){
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            }else if(SignInSucces ==-1){
+                //Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+            }
+            //old sign in
+           /* mAuth.signInWithEmailAndPassword(emailInput,passwordInput).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     Toast.makeText(LoginActivity.this,"Login successfully",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -70,8 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }
-            });
+            });*/
         }
 
-    }
+
 }
+}
+
