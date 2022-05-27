@@ -2,11 +2,14 @@ package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +17,8 @@ import android.widget.Toast;
 
 import com.au.st4prj4.feedingtimetracker.R;
 import com.au.st4prj4.feedingtimetracker.models.Feeding;
+import com.au.st4prj4.feedingtimetracker.viewmodels.LoginViewModel;
+import com.au.st4prj4.feedingtimetracker.viewmodels.StartFeedingByBottleView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,16 +32,18 @@ public class StartFeedingByBottle extends AppCompatActivity {
     Button back_Btn, save_Btn;
     TextView infoText_txtV;
     EditText totalBottleIntake_txtV;
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-    String userID;
+   // private FirebaseAuth mAuth;
+    //private FirebaseFirestore db;
+   // String userID;
+    private StartFeedingByBottleView viewModel; //viewModel
+    int dataSavedSucces =0;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_feeding_by_bottle);
-
+        viewModel = new ViewModelProvider(this).get(StartFeedingByBottleView.class);
         setUp();
 
         back_Btn.setOnClickListener(view -> {
@@ -47,7 +54,7 @@ public class StartFeedingByBottle extends AppCompatActivity {
             //add data to database
             String milk = totalBottleIntake_txtV.getText().toString();
 
-            feeding.setMilkInMl(Double.parseDouble(milk)); //tjek om dette virker
+            feeding.setMilkInMl(Double.parseDouble(milk));
             LocalDate dateTime;
             dateTime= LocalDate.now();
             feeding.setDate(dateTime.toString());
@@ -58,7 +65,7 @@ public class StartFeedingByBottle extends AppCompatActivity {
     }
 
     private void saveData(Feeding feeding) {
-        Map<String, Object> data = new HashMap<>();
+        /*Map<String, Object> data = new HashMap<>();
         data.put("date", feeding.getDate());
         data.put("milk",feeding.getMilkInMl());
 
@@ -66,7 +73,14 @@ public class StartFeedingByBottle extends AppCompatActivity {
         df.set(data).addOnCompleteListener(task1 -> {
             Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
             Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
-        });
+        });*/
+        dataSavedSucces= viewModel.saveMilkData(feeding);
+        if(dataSavedSucces == 1){
+            startActivity(new Intent(StartFeedingByBottle.this, MainMenuActivity.class));
+            finish();
+        }else if(dataSavedSucces ==-1){
+            //Toast.makeText(StartFeedingByBottle.this,"LogIn Error"ask.getException().getMessage(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setUp() {
@@ -77,9 +91,9 @@ public class StartFeedingByBottle extends AppCompatActivity {
         totalBottleIntake_txtV = findViewById(R.id.totalBottleInTake_txtV);
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-        userID = mAuth.getCurrentUser().getUid();
+       // mAuth = FirebaseAuth.getInstance();
+        //db = FirebaseFirestore.getInstance();
+        //userID = mAuth.getCurrentUser().getUid();
     }
 
 }

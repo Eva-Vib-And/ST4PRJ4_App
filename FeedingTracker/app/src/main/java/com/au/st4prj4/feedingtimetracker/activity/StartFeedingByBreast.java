@@ -2,6 +2,8 @@ package com.au.st4prj4.feedingtimetracker.activity;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +18,8 @@ import android.widget.Toast;
 
 import com.au.st4prj4.feedingtimetracker.R;
 import com.au.st4prj4.feedingtimetracker.models.Feeding;
+import com.au.st4prj4.feedingtimetracker.viewmodels.LoginViewModel;
+import com.au.st4prj4.feedingtimetracker.viewmodels.StartFeedingByBreastView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,23 +31,27 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+//this class i simulated to show what happens if the class were to receive data.
 public class StartFeedingByBreast extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
-    String userID;
+    //private FirebaseAuth mAuth;
+    //private FirebaseFirestore db;
+    private StartFeedingByBreastView viewModel; //viewModel
+    //String userID;
     ProgressBar progressBar;
     Button done;
     ImageView logo;
     TextView breastFeedingInfo;
     Feeding feeding = new Feeding();
-   // private ExecutorService executorService;
+    int dataSavedSucces =0;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_feeding_by_breast);
+        viewModel = new ViewModelProvider(this).get(StartFeedingByBreastView.class);
         setUp();
         //generate some demo data
         generateDemoData();
@@ -86,46 +94,35 @@ public class StartFeedingByBreast extends AppCompatActivity {
 
     }
 
-    /*private void waiting() {
-        if(executorService == null) {
-            executorService = Executors.newSingleThreadExecutor();
-        }
-        executorService.submit(new Runnable() {
-            @Override
-            public void run() {
-                //sleep for one minute
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    Log.e("Error", "run: ERROR", e);
-                }
 
-                finalSetup();
-            }
-        });
-    }*/
 
     private void saveData(Feeding feeding) {
-        Map<String, Object> data = new HashMap<>();
+        /*Map<String, Object> data = new HashMap<>();
         data.put("date", feeding.getDate());
         data.put("milk",feeding.getMilkInMl());
 
         DocumentReference df= db.collection("account").document(userID).collection("BreastFeeding").document();
         df.set(data).addOnCompleteListener(task1 -> {
             Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
-            Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
-        });
 
-        startActivity(new Intent(this,MainMenuActivity.class));
-        finish();
+        });*/
+        dataSavedSucces=viewModel.saveMilkData(feeding);
+        if(dataSavedSucces == 1){
+            Toast.makeText(this, "Data saved", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(StartFeedingByBreast.this, MainMenuActivity.class));
+            finish();
+        }else if(dataSavedSucces ==-1){
+            //Toast.makeText(LoginActivity.this,"LogIn Error"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
     private void setUp() {
 
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-        userID = mAuth.getCurrentUser().getUid();
+       // mAuth = FirebaseAuth.getInstance();
+        //db = FirebaseFirestore.getInstance();
+        //userID = mAuth.getCurrentUser().getUid();
 
         progressBar= findViewById(R.id.progressBar_breastFeeding);
         done = findViewById(R.id.breastFeedingDone_btn);

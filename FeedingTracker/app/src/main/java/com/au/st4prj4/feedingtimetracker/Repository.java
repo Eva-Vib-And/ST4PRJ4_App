@@ -2,11 +2,14 @@ package com.au.st4prj4.feedingtimetracker;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.au.st4prj4.feedingtimetracker.activity.MainMenuActivity;
+import com.au.st4prj4.feedingtimetracker.models.Feeding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -83,6 +86,48 @@ public class Repository {
         });
 
         return onSucces;
+    }
+    public int saveBottleMilkData(Feeding feeding) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("date", feeding.getDate());
+        data.put("milk",feeding.getMilkInMl());
+
+        DocumentReference df= db.collection("account").document(userID).collection("BottleFeeding").document();
+        df.set(data).addOnCompleteListener(task1 -> {
+            Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
+            if(task1.isSuccessful()){
+                Toast.makeText(context,"User registered successfully",Toast.LENGTH_SHORT).show();
+                // context.startActivity(new Intent(context, MainActivity.class));
+                onSucces = 1;
+                //startActivity(new Intent(context, MainActivity.class));
+            }else{
+                Toast.makeText(context,"LogIn Error"+task1.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                onSucces =-1;
+            }
+        });
+        return onSucces;
+
+    }
+    public int saveBreastMilkData(Feeding feeding) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("date", feeding.getDate());
+        data.put("milk",feeding.getMilkInMl());
+
+        DocumentReference df= db.collection("account").document(userID).collection("BreastFeeding").document();
+        df.set(data).addOnCompleteListener(task1 -> {
+            Log.d("FeedingByBottle:", "onSuccess: new feeding data saved for "+ userID);
+            if(task1.isSuccessful()){
+                Toast.makeText(context,"User registered successfully",Toast.LENGTH_SHORT).show();
+                // context.startActivity(new Intent(context, MainActivity.class));
+                onSucces = 1;
+                //startActivity(new Intent(context, MainActivity.class));
+            }else{
+                Toast.makeText(context,"LogIn Error"+task1.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                onSucces =-1;
+            }
+        });
+        return onSucces;
+
     }
     public void saveUserDetails(String fullName, String email){
         userID = mAuth.getCurrentUser().getUid();
